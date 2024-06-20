@@ -50,4 +50,13 @@ export default {
 			data
 		};
 	},
+	deleteMany: async (resource, params) => {
+		const url = `${apiUrl}/${resource}/delete-many?ids=${JSON.stringify(params.ids)}`
+
+		await axios.get(url)
+
+		return {
+			data: {}
+		};
+	},
 } as DataProvider;
