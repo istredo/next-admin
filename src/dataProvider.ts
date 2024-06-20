@@ -37,4 +37,17 @@ export default {
 			data: data.productItem
 		};
 	},
+	delete: async (resource, params) => {
+		const id = params.previousData && params.previousData.id
+		const category = params.previousData && params.previousData.category
+		const url = `${apiUrl}/${resource}/delete?id=${id}&category=${category}`
+
+		const {
+			data
+		} = await axios.get(url)
+
+		return {
+			data
+		};
+	},
 } as DataProvider;
